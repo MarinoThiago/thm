@@ -54,7 +54,7 @@ const UserOrderDetails = () => {
   
   const refundHandler = async () => {
     await axios.put(`${server}/order/order-refund/${id}`,{
-      status: "Processing refund"
+      status: "Procesando reembolso"
     }).then((res) => {
        toast.success(res.data.message);
     dispatch(getAllOrdersOfUser(user._id));
@@ -68,7 +68,7 @@ const UserOrderDetails = () => {
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           <BsFillBagFill size={30} color="crimson" />
-          <h1 className="pl-2 text-[25px]">Order Details</h1>
+          <h1 className="pl-2 text-[25px]">Detalles del pedido</h1>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ const UserOrderDetails = () => {
           Order ID: <span>#{data?._id?.slice(0, 8)}</span>
         </h5>
         <h5 className="text-[#00000084]">
-          Placed on: <span>{data?.createdAt?.slice(0, 10)}</span>
+        Colocado en: <span>{data?.createdAt?.slice(0, 10)}</span>
         </h5>
       </div>
 
@@ -99,11 +99,11 @@ const UserOrderDetails = () => {
                 US${item.discountPrice} x {item.qty}
               </h5>
             </div>
-            {!item.isReviewed && data?.status === "Delivered" ?  <div
+            {!item.isReviewed && data?.status === "Entregado" ?  <div
                 className={`${styles.button} text-[#fff]`}
                 onClick={() => setOpen(true) || setSelectedItem(item)}
               >
-                Write a review
+                Escribe una reseña
               </div> : (
              null
             )}
@@ -123,7 +123,7 @@ const UserOrderDetails = () => {
               />
             </div>
             <h2 className="text-[30px] font-[500] font-Poppins text-center">
-              Give a Review
+            Dar una reseña
             </h2>
             <br />
             <div className="w-full flex">
@@ -135,7 +135,7 @@ const UserOrderDetails = () => {
               <div>
                 <div className="pl-3 text-[20px]">{selectedItem?.name}</div>
                 <h4 className="pl-3 text-[20px]">
-                  US${selectedItem?.discountPrice} x {selectedItem?.qty}
+                  AR${selectedItem?.discountPrice} x {selectedItem?.qty}
                 </h4>
               </div>
             </div>
@@ -145,7 +145,7 @@ const UserOrderDetails = () => {
 
             {/* ratings */}
             <h5 className="pl-3 text-[20px] font-[500]">
-              Give a Rating <span className="text-red-500">*</span>
+             Dar una calificación <span className="text-red-500">*</span>
             </h5>
             <div className="flex w-full ml-2 pt-1">
               {[1, 2, 3, 4, 5].map((i) =>
@@ -171,7 +171,7 @@ const UserOrderDetails = () => {
             <br />
             <div className="w-full ml-3">
               <label className="block text-[20px] font-[500]">
-                Write a comment
+                Escribir un comentario
                 <span className="ml-1 font-[400] text-[16px] text-[#00000052]">
                   (optional)
                 </span>
@@ -199,14 +199,14 @@ const UserOrderDetails = () => {
 
       <div className="border-t w-full text-right">
         <h5 className="pt-3 text-[18px]">
-          Total Price: <strong>US${data?.totalPrice}</strong>
+        Precio total: <strong>AR${data?.totalPrice}</strong>
         </h5>
       </div>
       <br />
       <br />
       <div className="w-full 800px:flex items-center">
         <div className="w-full 800px:w-[60%]">
-          <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
+          <h4 className="pt-3 text-[20px] font-[600]">Dirección de envío:</h4>
           <h4 className="pt-3 text-[20px]">
             {data?.shippingAddress.address1 +
               " " +
@@ -217,24 +217,24 @@ const UserOrderDetails = () => {
           <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
-          <h4 className="pt-3 text-[20px]">Payment Info:</h4>
+          <h4 className="pt-3 text-[20px]">Información de pago:</h4>
           <h4>
             Status:{" "}
-            {data?.paymentInfo?.status ? data?.paymentInfo?.status : "Not Paid"}
+            {data?.paymentInfo?.status ? data?.paymentInfo?.status : "No pagado"}
           </h4>
           <br />
            {
-            data?.status === "Delivered" && (
+            data?.status === "Entregado" && (
               <div className={`${styles.button} text-white`}
               onClick={refundHandler}
-              >Give a Refund</div>
+              >Dar un reembolso</div>
             )
            }
         </div>
       </div>
       <br />
       <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
+        <div className={`${styles.button} text-white`}>Enviar mensaje</div>
       </Link>
       <br />
       <br />

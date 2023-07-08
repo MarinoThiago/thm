@@ -20,30 +20,30 @@ const TrackOrder = () => {
     <div className="w-full h-[80vh] flex justify-center items-center">
       {" "}
       <>
-        {data && data?.status === "Processing" ? (
-          <h1 className="text-[20px]">Your Order is processing in shop.</h1>
+        {data && data?.status === "Procesando" ? (
+          <h1 className="text-[20px]">Su pedido se está procesando en la tienda.</h1>
         ) : data?.status === "Transferred to delivery partner" ? (
           <h1 className="text-[20px]">
-            Your Order is on the way for delivery partner.
+            Su pedido está en camino para el socio de entrega.
           </h1>
-        ) : data?.status === "Shipping" ? (
+        ) : data?.status === "Envío" ? (
           <h1 className="text-[20px]">
-            Your Order is on the way with our delivery partner.
+            Su pedido está en camino con nuestro socio de entrega.
           </h1>
-        ) : data?.status === "Received" ? (
+        ) : data?.status === "Recibido" ? (
           <h1 className="text-[20px]">
-            Your Order is in your city. Our Delivery man will deliver it.
+            Tu Pedido está en tu ciudad. Nuestro repartidor lo entregará.
           </h1>
-        ) : data?.status === "On the way" ? (
+        ) : data?.status === "En camino" ? (
           <h1 className="text-[20px]">
-            Our Delivery man is going to deliver your order.
+            Nuestro repartidor va a entregar tu pedido.
           </h1>
-        ) : data?.status === "Delivered" ? (
-          <h1 className="text-[20px]">Your order is delivered!</h1>
+        ) : data?.status === "Entregado" ? (
+          <h1 className="text-[20px]">¡Tu pedido está entregado!</h1>
         ) : data?.status === "Processing refund" ? (
-          <h1 className="text-[20px]">Your refund is processing!</h1>
-        ) : data?.status === "Refund Success" ? (
-          <h1 className="text-[20px]">Your Refund is success!</h1>
+          <h1 className="text-[20px]">¡Su reembolso se está procesando!</h1>
+        ) : data?.status === "Reembolso exitoso" ? (
+          <h1 className="text-[20px]">¡Tu Reembolso es un éxito!</h1>
         ) : null}
       </>
     </div>

@@ -61,14 +61,14 @@ const ProductDetails = ({ data }) => {
   const addToCartHandler = (id) => {
     const isItemExists = cart && cart.find((i) => i._id === id);
     if (isItemExists) {
-      toast.error("Item already in cart!");
+      toast.error("¡El artículo ya está en el carrito!");
     } else {
       if (data.stock < 1) {
-        toast.error("Product stock limited!");
+        toast.error("Stock de productos limitado");
       } else {
         const cartData = { ...data, qty: count };
         dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!");
+        toast.success("¡Artículo agregado al carrito con éxito!");
       }
     }
   };
@@ -202,7 +202,7 @@ const ProductDetails = ({ data }) => {
                   onClick={() => addToCartHandler(data._id)}
                 >
                   <span className="text-white flex items-center">
-                    Add to cart <AiOutlineShoppingCart className="ml-1" />
+                   Agregar al carrito <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
                 <div className="flex items-center pt-8">
@@ -220,7 +220,7 @@ const ProductDetails = ({ data }) => {
                       </h3>
                     </Link>
                     <h5 className="pb-3 text-[15px]">
-                      ({averageRating}/5) Ratings
+                      ({averageRating}/5) Calificaciones
                     </h5>
                   </div>
                   <div
@@ -228,7 +228,7 @@ const ProductDetails = ({ data }) => {
                     onClick={handleMessageSubmit}
                   >
                     <span className="text-white flex items-center">
-                      Send Message <AiOutlineMessage className="ml-1" />
+                     Enviar mensaje <AiOutlineMessage className="ml-1" />
                     </span>
                   </div>
                 </div>
@@ -267,7 +267,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(1)}
           >
-            Product Details
+            Detalles de producto
           </h5>
           {active === 1 ? (
             <div className={`${styles.active_indicator}`} />
@@ -280,7 +280,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(2)}
           >
-            Product Reviews
+            Reseñas de productos
           </h5>
           {active === 2 ? (
             <div className={`${styles.active_indicator}`} />
@@ -293,7 +293,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(3)}
           >
-            Seller Information
+            Información del vendedor
           </h5>
           {active === 3 ? (
             <div className={`${styles.active_indicator}`} />
@@ -365,20 +365,20 @@ const ProductDetailsInfo = ({
                 </span>
               </h5>
               <h5 className="font-[600] pt-3">
-                Total Products:{" "}
+                Productos totales:{" "}
                 <span className="font-[500]">
                   {products && products.length}
                 </span>
               </h5>
               <h5 className="font-[600] pt-3">
-                Total Reviews:{" "}
+               Reseñas totales:{" "}
                 <span className="font-[500]">{totalReviewsLength}</span>
               </h5>
               <Link to="/">
                 <div
                   className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3`}
                 >
-                  <h4 className="text-white">Visit Shop</h4>
+                  <h4 className="text-white">Visitar tienda</h4>
                 </div>
               </Link>
             </div>

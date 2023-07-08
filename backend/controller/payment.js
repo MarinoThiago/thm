@@ -1,17 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+//import { initMercadoPago } from "@mercadopago/sdk-react";
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+// SDK de Mercado Pago
+const mercadopago = require("mercadopago")(process.env.MERCADOPAGO_SECRET_KEY);
+// Agrega credenciales
+
+//const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 router.post(
   "/process",
   catchAsyncErrors(async (req, res, next) => {
-    const myPayment = await stripe.paymentIntents.create({
+    const myPayment = await mercadopago.paymentIntents.create({
       amount: req.body.amount,
-      currency: "inr",
+      currency: "ars",
       metadata: {
-        company: "Becodemy",
+        company: "THM Freedom",
       },
     });
     res.status(200).json({
@@ -22,9 +28,9 @@ router.post(
 );
 
 router.get(
-  "/stripeapikey",
+  "/mercadopagoapikey",
   catchAsyncErrors(async (req, res, next) => {
-    res.status(200).json({ stripeApikey: process.env.STRIPE_API_KEY });
+    res.status(200).json({ mercadopagoApikey: process.env.MERCADOPAGO_API_KEY });
   })
 );
 

@@ -42,7 +42,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 1 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Profile
+          Perfil
         </span>
       </div>
       <div
@@ -55,7 +55,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 2 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Orders
+          Pedidos
         </span>
       </div>
       <div
@@ -68,7 +68,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 3 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Refunds
+          Reembolsos
         </span>
       </div>
 
@@ -82,7 +82,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 4 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Inbox
+          Bandeja de entrada
         </span>
       </div>
 
@@ -96,7 +96,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 5 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Track Order
+          Seguimiento de pedidos
         </span>
       </div>
 
@@ -110,7 +110,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 6 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Change Password
+          Cambiar la contraseña
         </span>
       </div>
 
@@ -124,7 +124,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 7 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Address
+          Direcciones
         </span>
       </div>
 
@@ -143,7 +143,7 @@ const ProfileSidebar = ({ setActive, active }) => {
                 active === 8 ? "text-[red]" : ""
               } 800px:block hidden`}
             >
-              Admin Dashboard
+              Panel de administración
             </span>
           </div>
         </Link>
@@ -158,7 +158,7 @@ const ProfileSidebar = ({ setActive, active }) => {
             active === 8 ? "text-[red]" : ""
           } 800px:block hidden`}
         >
-          Log out
+          Cerrar sesión
         </span>
       </div>
     </div>

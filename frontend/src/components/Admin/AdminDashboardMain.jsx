@@ -35,7 +35,7 @@ const AdminDashboardMain = () => {
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+        return params.getValue(params.id, "status") === "Entregado"
           ? "greenColor"
           : "redColor";
       },
@@ -83,7 +83,7 @@ const AdminDashboardMain = () => {
         <Loader />
       ) : (
         <div className="w-full p-4">
-        <h3 className="text-[22px] font-Poppins pb-2">Overview</h3>
+        <h3 className="text-[22px] font-Poppins pb-2">Descripción general</h3>
         <div className="w-full block 800px:flex items-center justify-between">
           <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-white shadow rounded px-2 py-5">
             <div className="flex items-center">
@@ -95,7 +95,7 @@ const AdminDashboardMain = () => {
               <h3
                 className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
-                Total Earning
+                Ganancias Totales
               </h3>
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">$ {adminBalance}</h5>

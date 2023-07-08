@@ -55,7 +55,7 @@ const shopSchema = new mongoose.Schema({
       },
       status: {
         type: String,
-        default: "Processing",
+        default: "Procesando",
       },
       createdAt: {
         type: Date,

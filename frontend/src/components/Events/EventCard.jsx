@@ -14,14 +14,14 @@ const EventCard = ({ active, data }) => {
   const addToCartHandler = (data) => {
     const isItemExists = cart && cart.find((i) => i._id === data._id);
     if (isItemExists) {
-      toast.error("Item already in cart!");
+      toast.error("¡El artículo ya está en el carrito!");
     } else {
       if (data.stock < 1) {
-        toast.error("Product stock limited!");
+        toast.error("Stock de productos limitado");
       } else {
         const cartData = { ...data, qty: 1 };
         dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!");
+        toast.success("¡Artículo agregado al carrito con éxito!");
       }
     }
   }
@@ -39,24 +39,24 @@ const EventCard = ({ active, data }) => {
         <p>{data.description}</p>
         <div className="flex py-2 justify-between">
           <div className="flex">
-            <h5 className="font-[500] text-[18px] text-[#d55b45] pr-3 line-through">
+            <h5 className="font-[500] text-[18px] text-[#FF0000] pr-3 line-through">
               {data.originalPrice}$
             </h5>
             <h5 className="font-bold text-[20px] text-[#333] font-Roboto">
               {data.discountPrice}$
             </h5>
           </div>
-          <span className="pr-3 font-[400] text-[17px] text-[#44a55e]">
-            {data.sold_out} sold
+          <span className="pr-3 font-[400] text-[17px] text-[#333]">
+            {data.sold_out} ventas
           </span>
         </div>
         <CountDown data={data} />
         <br />
         <div className="flex items-center">
           <Link to={`/product/${data._id}?isEvent=true`}>
-            <div className={`${styles.button} text-[#fff]`}>See Details</div>
+            <div className={`${styles.button} text-[#fff]`}>Ver detalles</div>
           </Link>
-          <div className={`${styles.button} text-[#fff] ml-5`} onClick={() => addToCartHandler(data)}>Add to cart</div>
+          <div className={`${styles.button} text-[#fff] ml-5`} onClick={() => addToCartHandler(data)}>Agregar al carrito</div>
         </div>
       </div>
     </div>
